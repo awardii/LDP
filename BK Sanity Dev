@@ -230,6 +230,59 @@ const queryCombos = `
 }
 `;
 const queryComboSlots = `
+{
+  allComboSlots{
+    _id
+    _type
+    images{
+    	...on Images{
+      	app{
+        	_type
+        	asset{
+          	...on SanityImageAsset{
+            	_id
+            	_type
+            }
+          }
+        }
+      }
+      ...on Images{
+        kiosk{
+          _type
+          asset{
+            ...on SanityImageAsset{
+              _id
+              _type
+            }
+          }
+        }
+      }
+    }
+    description{
+      _type
+      enRaw
+    }
+    name{
+      _type
+      en
+    }
+    options{
+      defaultAmount
+      maxAmount
+      minAmount
+      option{
+        ...on Item{
+          _id
+          _type
+          prices{
+            price
+          }
+        }
+      }
+    }
+    requiredAmount
+  }
+}
 `;
 const queryPickers = `
 `;
