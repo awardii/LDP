@@ -1,0 +1,197 @@
+const queryMenu = `
+{
+  allMenus{
+    options{
+        ... on Section {
+          _id,
+        _type
+      }
+    }
+  }
+}
+`;
+const querySections = `
+{
+  allSections{
+    _id
+    _type
+    description{
+      _type
+      enRaw
+    }
+    images{
+      ...on Images{
+        app{
+          _type
+          asset{
+            ...on SanityImageAsset{
+              _id
+              _type
+            }
+          }
+        }
+      }
+      ...on Images{
+        kiosk{
+          _type
+          asset{
+            ...on SanityImageAsset{
+              _id
+              _type
+            }
+          }
+        }
+      }
+    }
+    name{
+      _type
+      en
+    }
+    options{
+      ...on Item{
+          _id
+          _type
+            }
+    }
+  }
+}
+`;
+const queryItems = `
+{
+  allItems{
+    operationalItem{
+      launchDate
+      daypart
+    }
+    _id
+    _type
+    description{
+      _type
+      enRaw
+    }
+    images{
+      ...on Images{
+        app{
+          _type
+          asset{
+            ...on SanityImageAsset{
+              _id
+              _type
+            }
+          }
+        }
+      }
+      ...on Images{
+        kiosk{
+          _type
+          asset{
+            ...on SanityImageAsset{
+              _id
+              _type
+            }
+          }
+        }
+      }
+    }
+    allergens{
+      _type
+      celery
+      eggs
+      fish
+      gluten
+      lupin
+      milk
+      mustard
+      peanuts
+      sesame
+      shellfish
+      soy
+      sulphurDioxide
+      treeNuts
+      wheat
+    }
+    name{
+      _type
+      en
+    }
+    nutrition{
+      _type
+      calories
+      carbohydrates
+      cholesterol
+      fat
+      fiber
+      proteins
+      saturatedFat
+      sodium
+      sugar
+      transFat
+    }
+    operationalItem{
+      _type
+      ...on OpItem{
+        launchDate
+        name
+      }
+      product
+      productNumber
+    }
+    vendorPlus{
+      ...on VendorPlus{
+        sicom
+      }
+    }
+    options{
+      name{
+        _type
+        en
+      }
+      options{
+        default
+        modifierMultiplier{
+          modifier{
+            name{
+              _type
+              en
+            }
+          }
+          multiplier
+        }
+      }
+    }
+    ...on Item{
+      channelExclusions{
+        delivery
+      }
+    }
+    prices{
+      price
+    }
+  }
+}
+`;
+const queryCombos = `
+`;
+const queryComboSlots = `
+`;
+const queryPickers = `
+`;
+const queryPickerAspects = `
+{
+  allPickerAspects{
+    _id
+    _type
+    name{
+      _type
+      en
+    }
+    pickerAspectOptions{
+      identifier
+      name{
+        _type
+        en
+      }
+    }
+  }
+}
+`;
