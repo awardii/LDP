@@ -171,6 +171,63 @@ const queryItems = `
 }
 `;
 const queryCombos = `
+{
+  allCombos{
+    _id
+    _type
+    images{
+    	...on Images{
+      	app{
+        	_type
+        	asset{
+          	...on SanityImageAsset{
+            	_id
+              _type
+            }
+          }
+        }
+      }
+      ...on Images{
+        kiosk{
+          _type
+          asset{
+            ...on SanityImageAsset{
+              _id
+              _type
+            }
+          }
+        }
+      }
+    }
+    description{
+      _type
+      enRaw
+    }
+    mainItem{
+      _id
+      _type
+      operationalItem{
+        launchDate
+      }
+    }
+    name{
+      _type
+      en
+    }
+    options{
+      _id
+      _type
+    }
+    prices{
+      price
+    }
+    vendorPlus{
+      ...on VendorPlus{
+        sicom
+      }
+    }
+  }
+}
 `;
 const queryComboSlots = `
 `;
