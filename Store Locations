@@ -1,0 +1,16 @@
+`
+{
+  allRestaurants{
+    _id
+    physicalAddress{
+      address1
+      postalCode
+    }
+    latitude
+    longitude
+    pos {
+      vendor
+    }
+  }
+}
+;`
