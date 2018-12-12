@@ -285,6 +285,80 @@ const queryComboSlots = `
 }
 `;
 const queryPickers = `
+{
+  allPickers{
+    _id
+    _type
+    images{
+    	...on Images{
+      	app{
+        	_type
+        	asset{
+          	...on SanityImageAsset{
+            	_id
+            	_type
+            }
+          }
+        }
+      }
+      ...on Images{
+        kiosk{
+          _type
+          asset{
+            ...on SanityImageAsset{
+              _id
+              _type
+            }
+          }
+        }
+      }
+    }
+    name{
+      _type,
+      en}
+    options{
+      _key
+      _type
+      option{
+        ...on Document{
+          _id
+        }
+      }
+      pickerItemMappings{
+        pickerAspect{
+          _id
+        }
+        pickerAspectValueIdentifier
+        _type
+      }
+    }
+    description{
+      _type,
+      enRaw,
+      _key}
+    pickerAspects{
+      _id
+      _type
+      pickerAspectOptions{
+        name{
+          en}
+        _key
+        _type
+      }
+    }
+    options{
+      pickerItemMappings{
+        _key
+        _type
+        pickerAspectValueIdentifier
+        pickerAspect{
+          _id
+          _type
+        }
+      }
+    }
+  }
+}  
 `;
 const queryPickerAspects = `
 {
